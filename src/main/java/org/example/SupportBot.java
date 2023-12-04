@@ -12,12 +12,12 @@ import java.util.TimerTask;
 
 public class SupportBot extends TelegramLongPollingBot {
 
-    private final String CHAT_ID = "-4076111004"; // Замените на реальный ID чата
+    private final String CHAT_ID = "Ваш ID чата";
     private Timer timer;
 
     @Override
     public void onUpdateReceived(Update update) {
-        // Здесь может быть обработка сообщений от пользователей, но для этого бота она не требуется
+    
     }
 
     @Override
@@ -27,7 +27,7 @@ public class SupportBot extends TelegramLongPollingBot {
 
     @Override
     public String getBotToken() {
-        return "6633909020:AAGuibUGLw42XJdluuX2mdQxNCGuwMihk84"; // Укажите ваш токен бота
+        return "Ваш токен бота";
     }
 
     public static void main(String[] args) {
@@ -41,8 +41,7 @@ public class SupportBot extends TelegramLongPollingBot {
             @Override
             public void run() {
                 sendSupportMessage();
-                // Перепланирование задачи с случайной задержкой от 0 до 2 часов (в миллисекундах)
-                int delay = (int) (Math.random() * 2 * 60 * 60 * 1000); // Случайная задержка от 0 до 2 часов
+                int delay = (int) (Math.random() * 2 * 60 * 60 * 1000);
                 timer.schedule(new TimerTask() {
                     @Override
                     public void run() {
@@ -50,13 +49,12 @@ public class SupportBot extends TelegramLongPollingBot {
                     }
                 }, delay);
             }
-        }, 0); // Начальное выполнение
+        }, 0);
     }
 
     private void sendSupportMessage() {
         LocalDateTime currentTime = LocalDateTime.now();
 
-        // Поддерживающие сообщения
         String[] messages = {
                 "Привет! Надеюсь, у тебя отличный день!",
                 "Не забывай улыбаться! :)",
@@ -98,7 +96,7 @@ public class SupportBot extends TelegramLongPollingBot {
         // Отправка сообщения
         SendMessage message = SendMessage.builder()
                 .chatId(CHAT_ID)
-                .text(messages[currentTime.getMinute() % messages.length]) // Выбор сообщения в зависимости от минуты
+                .text(messages[currentTime.getMinute() % messages.length])
                 .build();
 
         try {
