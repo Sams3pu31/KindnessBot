@@ -1,24 +1,15 @@
-package org.example;
-
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
-
-import java.time.LocalDateTime;
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class SupportBot extends TelegramLongPollingBot {
 
-    private final String CHAT_ID = "Ваш ID чата";
+    private final String CHAT_ID = "ваш токен чата";
     private Timer timer;
-
-    @Override
-    public void onUpdateReceived(Update update) {
-    
-    }
 
     @Override
     public String getBotUsername() {
@@ -27,7 +18,7 @@ public class SupportBot extends TelegramLongPollingBot {
 
     @Override
     public String getBotToken() {
-        return "Ваш токен бота";
+        return "ваш токен для бота";
     }
 
     public static void main(String[] args) {
@@ -37,24 +28,15 @@ public class SupportBot extends TelegramLongPollingBot {
 
     private void startSupport() {
         timer = new Timer();
-        timer.schedule(new TimerTask() {
+        timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
                 sendSupportMessage();
-                int delay = (int) (Math.random() * 2 * 60 * 60 * 1000);
-                timer.schedule(new TimerTask() {
-                    @Override
-                    public void run() {
-                        sendSupportMessage();
-                    }
-                }, delay);
             }
-        }, 0);
+        }, 0, 2 * 60 * 60 * 1000);
     }
 
     private void sendSupportMessage() {
-        LocalDateTime currentTime = LocalDateTime.now();
-
         String[] messages = {
                 "Привет! Надеюсь, у тебя отличный день!",
                 "Не забывай улыбаться! :)",
@@ -73,7 +55,7 @@ public class SupportBot extends TelegramLongPollingBot {
                 "Помни, что каждая трудность, с которой ты сталкиваешься, помогает тебе стать сильнее.",
                 "Заботься о себе так, как заботишься о своих близких. Ты тоже заслуживаешь своего внимания и ухода.",
                 "Сегодня — прекрасный день для благодарности. Найди что-то хорошее вокруг и скажи 'спасибо'.",
-                "Пусть каждый твой шаг будет наполнен радостью, а каждый день — значимым.",
+                "Пусть каждый твой шаг будет наполнен радостью, а каждый день пусть будет значимым.",
                 "Уважай себя так же, как уважаешь других. Твоя самооценка играет важную роль в твоей жизни.",
                 "Не позволяй прошлым ошибкам остаться твоим обязательством. Используй их как уроки для будущего.",
                 "Когда ты делаешь что-то с любовью, это приносит радость как тебе, так и тем, кто вокруг.",
@@ -93,10 +75,12 @@ public class SupportBot extends TelegramLongPollingBot {
                 "Помни, что любая ситуация — это шанс для роста и самосовершенствования."
         };
 
-        // Отправка сообщения
+        int randomIndex = (int) (Math.random() * messages.length);
+        String randomMessage = messages[randomIndex];
+
         SendMessage message = SendMessage.builder()
                 .chatId(CHAT_ID)
-                .text(messages[currentTime.getMinute() % messages.length])
+                .text(randomMessage)
                 .build();
 
         try {
