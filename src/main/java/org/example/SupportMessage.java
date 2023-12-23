@@ -1,5 +1,4 @@
 package org.example;
-
 import java.util.Random;
 
     public class SupportMessage{
@@ -63,7 +62,6 @@ import java.util.Random;
                 "Твоя жизнь ценна и уникальна. Проявляй свою индивидуальность и не бойся быть разной от других.",
                 "Секрет счастливой жизни — это любовь к себе и к другим. Пусть твое сердце всегда наполнено любовью."
         };
-
         public static String getRandomMessage() {
             int randomIndex = new Random().nextInt(MESSAGES.length);
             return MESSAGES[randomIndex];

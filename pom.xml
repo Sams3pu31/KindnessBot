@@ -24,7 +24,7 @@
     <dependency>
       <groupId>ch.qos.logback</groupId>
       <artifactId>logback-classic</artifactId>
-      <version>1.4.8</version>
+      <version>1.4.12</version>
     </dependency>
     <dependency>
       <groupId>org.telegram</groupId>
@@ -34,7 +34,7 @@
     <dependency>
       <groupId>org.json</groupId>
       <artifactId>json</artifactId>
-      <version>20230618</version> <!-- или последняя версия -->
+      <version>20231013</version> <!-- или последняя версия -->
     </dependency>
   </dependencies>
   <build>
@@ -43,8 +43,8 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         <configuration>
-          <source>8</source>
-          <target>8</target>
+          <source>21</source>
+          <target>21</target>
         </configuration>
       </plugin>
     </plugins>
