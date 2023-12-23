@@ -14,8 +14,7 @@ public class SupportBot extends TelegramLongPollingBot {
 
     @Override
     public void onUpdateReceived(Update update) {
-        // тут можно сообщения от пользователей обработать, или позже дописать функционал, который будет использовать
-        // эту фичу
+        // тут можно сообщения от пользователей обработать, или позже дописать функционал
     }
 
     @Override
