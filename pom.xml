@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.example</groupId>
-  <artifactId>Kindlessbot</artifactId>
+  <artifactId>Kindnessbot</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
@@ -24,7 +24,7 @@
     <dependency>
       <groupId>ch.qos.logback</groupId>
       <artifactId>logback-classic</artifactId>
-      <version>1.4.8</version> <!-- Замените версию на актуальную -->
+      <version>1.4.8</version>
     </dependency>
     <dependency>
       <groupId>org.telegram</groupId>
