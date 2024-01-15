@@ -21,7 +21,7 @@ public class SupportBot extends TelegramLongPollingBot {
 
     @Override
     public String getBotToken() {
-        return "6633909020:AAGuibUGLw42XJdluuX2mdQxNCGuwMihk84"; // Укажите ваш токен бота (получить у бот фазер)
+        return ""; // Укажите ваш токен бота (получить у бот фазер)
     }
 
     public static void main(String[] args) {
@@ -36,14 +36,13 @@ public class SupportBot extends TelegramLongPollingBot {
             public void run() {
                 sendSupportMessage();
             }
-        }, 0, 2 * 60 * 60 * 1000); // Повторять каждые два часа (в миллисекундах)
+        }, 0, 2 * 60 * 60 * 1000);
     }
 
     private void sendSupportMessage() {
         String randomMessage = SupportMessage.getRandomMessage();
 
-        // Замените на реальный ID чата
-        String CHAT_ID = "-4076111004";
+        String CHAT_ID = "";
         SendMessage message = SendMessage.builder()
                 .chatId(CHAT_ID)
                 .text(randomMessage)
